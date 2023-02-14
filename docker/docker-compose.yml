@@ -9,6 +9,8 @@ services:
       - todoback
     environment:
       - FRONT_HOST=todofront
+    networks:
+      - app
   
   todofront:
     build: ./todo-app/front-end/
@@ -17,9 +19,13 @@ services:
       - todoback
     ports:
       - "3000:3000"
+    networks:
+      - app
 
   todoback:
     build: ./todo-app/back-end/
     restart: always
     ports:
       - "3001:3001"
+    networks:
+      - app
