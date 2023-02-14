@@ -4,8 +4,8 @@ WORKDIR /app
 
 EXPOSE 3000
 
-ADD ./node_modules.tar.gz ./
+COPY . ./
 
-COPY . ./front-end
+ADD ./node_modules.tar.gz ./
 
 CMD ["npm", "start"]
