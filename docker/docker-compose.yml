@@ -10,7 +10,7 @@ services:
     environment:
       - FRONT_HOST=todofront
     networks:
-      - app
+      - myapp
   
   todofront:
     build: ./todo-app/front-end/
@@ -20,7 +20,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - app
+      - myapp
 
   todoback:
     build: ./todo-app/back-end/
@@ -28,6 +28,7 @@ services:
     ports:
       - "3001:3001"
     networks:
-      - app
-  networks:
-    app:
+      - myapp
+
+networks:
+  myapp:
